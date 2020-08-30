@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>amabie_description</name>
+  <version>1.0.0</version>
+  <description>Amabie model</description>
+  <maintainer email="yuki.st16@gmail.com">Yuki Onishi</maintainer>
+  <license>CERN Open Hardware Licence Version 2</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+</package>
