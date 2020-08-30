@@ -1,0 +1,99 @@
+format: ChoreonoidBody
+formatVersion: 1.0
+angleUnit: degree
+name: caster
+rootLink: Base
+
+links:
+  -
+    name: Base
+    jointType: fixed
+    centerOfMass: [ 0, 0, -0.0025 ]
+    mass: 0.1
+    inertia: [
+      0.001, 0,       0,
+      0,       0.001, 0,
+      0,       0,       0.001
+    ]
+    elements:
+      -
+        type: Visual
+        elements:
+          -
+            type: Shape
+            translation: [ 0, 0, -0.0009 ]
+            geometry: { type: Box, size: [ 0.05, 0.05, 0.0018 ] }
+      -
+        type: Collision
+        elements:
+          -
+            type: Shape
+            translation: [ 0, 0, -0.0009 ]
+            geometry: { type: Box, size: [ 0.05, 0.05, 0.0018 ] }
+  -
+    name: fork
+    parent: Base
+    translation: [ 0, 0, -0.0018 ]
+    jointType: revolute
+    jointId: 0
+    jointAxis: Z
+    jointVelocityRange: [ -10000, 100000 ]
+    centerOfMass: [ 0, 0, -0.0375 ]
+    mass: 0.1
+    inertia: [
+      0.001, 0,     0,
+      0,     0.001, 0,
+      0,     0,     0.001
+    ]
+    rotorInertia: 0.05
+    elements:
+      -
+        type: Visual
+        elements:
+          -
+            type: Shape
+            translation: [ 0, 0, -0.0225 ]
+            geometry: { type: Box, size: [ 0.05, 0.03, 0.045 ] }
+      -
+        type: Collision
+        elements:
+          -
+            type: Shape
+            translation: [ 0, 0, -0.0225 ]
+            geometry: { type: Box, size: [ 0.05, 0.03, 0.045 ] }
+  -
+    name: wheel
+    parent: fork
+    translation: [ -0.016, 0.01, -0.037755 ]
+    jointType: revolute
+    jointId: 1
+    jointAxis: Y
+    jointVelocityRange: [ -10000, 100000 ]
+    centerOfMass: [ 0, -0.0205, 0 ]
+    mass: 0.1
+    inertia: [
+      0.001, 0,     0,
+      0,     0.001, 0,
+      0,     0,     0.001
+    ]
+    rotorInertia: 0.05
+    elements:
+      -
+        type: Visual
+        elements:
+          -
+            type: Shape
+            translation: [ 0, -0.01, 0 ]
+            geometry: { type: Cylinder, radius: 0.025, height: 0.02 }
+      -
+        type: Collision
+        elements:
+          -
+            type: Shape
+            translation: [ 0, -0.01, 0 ]
+            geometry: { type: Cylinder, radius: 0.025, height: 0.02 }
+
+standardPose: [
+  0,  # fork
+  0   # wheel
+]
